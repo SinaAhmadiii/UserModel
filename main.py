@@ -81,7 +81,25 @@ class UserMenu:
         else:
               print("You are not logged in ")
 
-      
+    def edit_user_info(self) -> None:
+        if self.current_user:
+            new_username = input("Please enter your new Username : ")
+            new_phone_number = input("Please enter your new phone number : ")
+
+            if not self.is_username_valid(new_username):
+                print("Please Enter a valid username")
+                return
+            if not self.is_username_available(new_username) and new_username != self.current_user.username:
+                print("username is already taken . ")
+                return
+        
+            self.current_user.username = new_username
+            self.current_user.phone_number = new_phone_number
+            print("User information updated")
+        else:
+            print("you are not logged in")
+
+
 
 
     
