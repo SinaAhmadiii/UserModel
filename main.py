@@ -42,7 +42,21 @@ class UserMenu:
     
     def generate_user_id(self,user: User) -> None:
         user.id = len(self.users) + 1
+
+
+    def login_user(self) -> None:
+        username = input("Please Enter your username : ")
+        password = input("Please enter your password : ")
+
+        for user in self.users.values():
+            if user.username == username and user.password == password:
+                self.current_user = user
+                print("Login successful")
+                return
+
+        print("Incorrect username or password")
         
+             
     
 
         
