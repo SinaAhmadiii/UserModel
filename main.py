@@ -55,8 +55,13 @@ class UserMenu:
                 return
 
         print("Incorrect username or password")
+
+    def logout_user(self) -> None:
+        self.current_user = None
+        print("logged out successfully")
+
         
-             
+
     
 
         
