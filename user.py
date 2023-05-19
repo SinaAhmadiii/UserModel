@@ -18,4 +18,12 @@ class User:
     def __str__(self) -> str:
         return f"Username : {self.username}\nPhone Number : {self.phone_number}"
     
+    @staticmethod
+    def validate_password(password:str) -> bool:
+
+        return len(password) >= 4
+    
+    @property
+    def password(self) -> str:
+        return self._password
     
