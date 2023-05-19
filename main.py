@@ -60,7 +60,29 @@ class UserMenu:
         self.current_user = None
         print("logged out successfully")
 
-        
+    def change_password(self) -> None:
+        if self.current_user:
+            old_password = input("Please enter your old password : ")
+            new_password = input("Please enter your new password : ")
+            confirm_password = input("Confirm your new password : ")
+
+            if old_password != self.current_user.password:
+                print("incorrect old password")
+                return
+            if new_password != confirm_password:
+                print("new password and confirm password do not match")
+                return
+            if not User.validate_password(new_password):
+                print("password must have at least 4 characters")
+                return
+            
+            self.current_user.password = new_password
+            print("Password changed successfully")
+        else:
+              print("You are not logged in ")
+
+      
+
 
     
 
