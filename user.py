@@ -27,3 +27,10 @@ class User:
     def password(self) -> str:
         return self._password
     
+    @password.setter
+    def password(self,new_password:str) -> None:
+
+        if User.validate_password(new_password):
+            self._password = new_password
+        else:
+            raise ValueError("Password must have as least 4 characters")
