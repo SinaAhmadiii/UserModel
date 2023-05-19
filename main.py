@@ -99,9 +99,28 @@ class UserMenu:
         else:
             print("you are not logged in")
 
+menu = UserMenu()
 
+while True:
+    print("1. Register User")
+    print("2. Login user")
+    print("3. Change password ")
+    print("4. Edit user information")
+    print("0 . Exit")
+    option = input("Please Enter your choice : ")
 
-
+    if option == "0":
+        break
+    elif option == "1":
+        menu.register_user()
+    elif option == "2":
+        menu.login_user()
+    elif option == "3":
+        menu.change_password()
+    elif option == "4":
+        menu.edit_user_info()
+    else:
+        print("Invalid option.Please try again")
     
 
         
