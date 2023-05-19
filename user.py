@@ -13,3 +13,9 @@ class User:
         self.password = password
         self.phone_number = phone_number
         self.id = None
+
+
+    def __str__(self) -> str:
+        return f"Username : {self.username}\nPhone Number : {self.phone_number}"
+    
+    
