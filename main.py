@@ -27,4 +27,11 @@ class UserMenu:
         self.users[user.id] = user
         print("user registered successfully")
 
+
+    def is_username_valid(self,username: str) -> bool:
+
+        return len(username) > 0
+    
+
+
         
