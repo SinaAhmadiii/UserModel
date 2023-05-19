@@ -40,5 +40,9 @@ class UserMenu:
                 return False
         return True
     
+    def generate_user_id(self,user: User) -> None:
+        user.id = len(self.users) + 1
+        
+    
 
         
