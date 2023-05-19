@@ -33,5 +33,12 @@ class UserMenu:
         return len(username) > 0
     
 
+    def is_username_available(self,username: str) -> bool:
+
+        for user in self.users.values():
+            if user.username == username:
+                return False
+        return True
+    
 
         
