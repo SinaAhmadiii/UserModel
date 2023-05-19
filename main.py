@@ -1,12 +1,22 @@
 from user import User
+"""
+    This module define the user model class
+    
+"""
 
 class UserMenu:
+    """A class  representing a user menu
+
+    """
 
     def __init__(self):
         self.users = {}
         self.current_user = None
 
     def register_user(self) -> None:
+        """
+           Register a new user by taking information from the user
+        """
         
         username = input("Please enter your username : ")
         password = input("Please enter your password : ")
@@ -29,22 +39,47 @@ class UserMenu:
 
 
     def is_username_valid(self,username: str) -> bool:
+        """
+            Check the username is valid
+            args:
+                username (str): the Username to check
+            Returns:
+                bool: True if the username is valid or false if username is not valid
 
+        """        
         return len(username) > 0
     
 
     def is_username_available(self,username: str) -> bool:
+        """
+        check the username for registration
 
+        Args:
+            username (str): the username for check
+
+        Returns:
+            bool: True if username is available , if not is False
+
+        """
         for user in self.users.values():
             if user.username == username:
                 return False
         return True
     
     def generate_user_id(self,user: User) -> None:
+        """
+        Generate a unique ID
+
+        Args:
+            user (User): the user to generate
+        """
         user.id = len(self.users) + 1
 
 
     def login_user(self) -> None:
+        """
+            Log in the system with valid username and password        
+        """
         username = input("Please Enter your username : ")
         password = input("Please enter your password : ")
 
@@ -57,10 +92,16 @@ class UserMenu:
         print("Incorrect username or password")
 
     def logout_user(self) -> None:
+        """
+            Log out the username 
+        """
         self.current_user = None
         print("logged out successfully")
 
     def change_password(self) -> None:
+        """
+           change the password of username
+        """
         if self.current_user:
             old_password = input("Please enter your old password : ")
             new_password = input("Please enter your new password : ")
@@ -82,6 +123,9 @@ class UserMenu:
               print("You are not logged in ")
 
     def edit_user_info(self) -> None:
+        """
+           edit the information of user
+        """
         if self.current_user:
             new_username = input("Please enter your new Username : ")
             new_phone_number = input("Please enter your new phone number : ")
